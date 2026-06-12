@@ -1,0 +1,28 @@
+# 编译产物
+*.exe
+
+# Vim 交换文件
+*.swp
+*.swo
+
+# 性能分析
+gmon.out
+
+# 临时文件
+temp.cpp
+test.cpp
+untitled*.cpp
+
+# 数据文件
+*.in
+*.out
+!data/*.in
+!data/*.out
+
+# 归档
+*.zip
+
+# 其他
+*.pbs
+*.TXT
+input.txt
