@@ -6,9 +6,7 @@
 
 using namespace std;
 
-// 洛谷要求换行符必须为 LF (\n)
-// 在 Windows 下直接写入 '\n' 有时会被系统库转为 \r\n
-// 使用二进制模式打开文件可以强制写入 \n
+
 void generate_data(int file_idx) {
 	mt19937_64 rng(time(0) + file_idx); // 增加随机偏移
 	

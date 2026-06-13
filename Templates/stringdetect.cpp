@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 bool isNoise(const string& s) {
-	if (s.length()==5&&s[2]=='-')return true;//01-16
-	if (s.length()==8&&s[2]==':'&&s[5]==':')return true;//00:00:00
+	if (s.length()==5&&s[2]=='-')return true;
+	if (s.length()==8&&s[2]==':'&&s[5]==':')return true;
 	if (s.find("<img") != string::npos ||s.find("nt_qq") != string::npos||s.find("src=") != string::npos || s == "/>") return true;
 	return false;
 }
