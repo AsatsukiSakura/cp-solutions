@@ -25,4 +25,9 @@ untitled*.cpp
 # 其他
 *.pbs
 *.TXT
+*.txt
 input.txt
+
+*.js
+*.ts
+*.java
