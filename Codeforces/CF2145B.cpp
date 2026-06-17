@@ -17,15 +17,15 @@ void solve(){
 		p[i]=1;
 	for(i=n;i>=n-d+1;i--)
 		p[i]=1;
-    if(v==n-u-d)
-        for(i=1;i<=n;i++)
-            p[i]=1;
-    else{
-        for(i=u+1;i<=u+v;i++)
-            p[i]=0;
-        for(i=n-d;i>=n-d-v+1;i--)
-            p[i]=0;
-    }
+    	if(v==n-u-d)
+    	    for(i=1;i<=n;i++)
+    	        p[i]=1;
+    	else{
+    	    for(i=u+1;i<=u+v;i++)
+    	        p[i]=0;
+    	    for(i=n-d;i>=n-d-v+1;i--)
+    	        p[i]=0;
+    	}
 	for(i=1;i<=n;i++){
 		if(p[i]==-1) cout<<'+';
 		if(p[i]==0) cout<<'?';

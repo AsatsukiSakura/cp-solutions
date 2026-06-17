@@ -2,7 +2,7 @@
 using namespace std;
 int main(){
 	int a[114514],n,i,l=1e9+7,r=-8848,cnt=0;
-    cin>>n;
+    	cin>>n;
 	for(i=1;i<=n;i++)	cin>>a[i];
 	for(i=1;i<=n;i++)
 		if(a[i]==1){l=i;break;}

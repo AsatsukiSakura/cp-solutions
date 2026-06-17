@@ -30,13 +30,13 @@ int main(){
 	long long n;	cin>>n;
 	if(n<=2) cout<<1;
 	else{
-        n-=2;
+    	    n-=2;
 		int i=0;
 		while(n){
 			if(n&1)	
 				e=matrixmul(e,a[i],2);
 			n>>=1;
-            i++;
+    	        i++;
 		}
 		cout<<(e.num[1][1]+e.num[1][2])%mod;
 	}

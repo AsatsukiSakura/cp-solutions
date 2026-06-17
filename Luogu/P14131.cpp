@@ -7,7 +7,7 @@ void solve(){
 		cin>>a[i];
 	}
 	for(i=500;i>=1;i--){
-        memset(cnt,0,sizeof(cnt));
+    	    memset(cnt,0,sizeof(cnt));
 		int dif=i;
 		int l=i*(i+1)/2;
 		if(n<l)	continue;
@@ -18,7 +18,7 @@ void solve(){
 				if(cnt[a[j]]==a[j]+1)dif++;
 			}
 		}
-        if(dif==0){
+    	    if(dif==0){
 			cout<<i<<endl;return;}
 		for(j=l+1;j<=n;j++){
 			if(a[j-l]<=i){

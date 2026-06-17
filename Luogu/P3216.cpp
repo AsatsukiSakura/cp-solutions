@@ -5,9 +5,9 @@ const int mod=1e9+7;
 struct matrix{
 	ll num[4][4];
 	matrix(){ 
-        memset(num,0,sizeof(num));
-        num[1][1]=num[2][2]=num[3][3]=1;
-    }
+    	    memset(num,0,sizeof(num));
+    	    num[1][1]=num[2][2]=num[3][3]=1;
+    	}
 }e;
 matrix mul(matrix x,matrix y){
 	int i,j,k;

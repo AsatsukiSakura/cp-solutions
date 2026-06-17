@@ -15,7 +15,7 @@ void grey(int n, ull k)
  } 
 int main(){
 	int n; 
-    ull k;
+    	ull k;
 	cin>>n>>k;
 	grey(n,k);
 	return 0; 

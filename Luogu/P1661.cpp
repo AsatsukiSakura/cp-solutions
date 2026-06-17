@@ -3,10 +3,10 @@ using namespace std;
 pair<int,int> p[55];
 int dis[55][55],root[55],n,i,j; 
 int find(int x) {
-    while (root[x]!=x) {
-        root[x]=find(root[x]);
-    }
-    return root[x];
+    	while (root[x]!=x) {
+    	    root[x]=find(root[x]);
+    	}
+    	return root[x];
 }
 bool check(int d){
 	for(i=1;i<=n;i++){

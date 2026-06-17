@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile",
+            "type": "shell",
+            "command": "cmd",
+            "args": ["/c", "E:\\RedPanda\\mingw64\\bin\\g++.exe -std=c++17 -O2 -Wall -o ${fileDirname}\\${fileBasenameNoExtension}.exe ${file}"],
+            "group": "build",
+            "problemMatcher": ["$gcc"],
+            "detail": "Compile current C++ file"
+        },
+        {
+            "label": "Compile and Run",
+            "type": "shell",
+            "command": "cmd",
+            "args": ["/c", "E:\\RedPanda\\mingw64\\bin\\g++.exe -std=c++17 -O2 -Wall -o ${fileDirname}\\${fileBasenameNoExtension}.exe ${file} && ${fileDirname}\\${fileBasenameNoExtension}.exe"],
+            "group": {"kind": "build", "isDefault": true},
+            "problemMatcher": ["$gcc"],
+            "detail": "Compile and run current C++ file"
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "group": "test",
+            "detail": "Run compiled C++ program"
+        }
+    ]
+}

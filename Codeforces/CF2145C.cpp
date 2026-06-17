@@ -6,7 +6,7 @@ void solve(){
 	int i,n,k,p[200005],pre[200005],v=0,ans=0x3f3f3f3f;
 	map<int,int> ny;
 	for(i=-200005;i<=200005;i++) 
-    	ny[i]=-0x3f3f3f3f;
+    		ny[i]=-0x3f3f3f3f;
 	string s;
 	cin>>n>>k;
 	pre[0]=0;
