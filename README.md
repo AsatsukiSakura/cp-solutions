@@ -1,21 +1,20 @@
 # cp-solutions
 
-一些算法竞赛题目的代码，闲着也是闲着不如放GitHub。
+闲着也是闲着，不如把代码丢上来吃灰
 
-## 包含的平台
+### 目录
 
-- [AtCoder](AtCoder/)
-- [Codeforces](Codeforces/)
-- [Luogu](Luogu/)
-- ICPC / CCPC / XXUPC ([XCPC](XCPC/))
-- 板子 & 小工具 ([Templates](Templates/))
+- [AtCoder](AtCoder/) - AtCoder
+- [Codeforces](Codeforces/) - 穿越火线
+- [Luogu](Luogu/) - 洛谷
+- [XCPC](XCPC/) - ICPC / CCPC / 省赛 / 大学校赛 
+- [Templates](Templates/) - 板子 & 一些乱七八糟的工具
 
-## 语言
-全都是C++写的：
+### 编译
+
 ```bash
-g++ -std=c++17 xxx.cpp -o xxx
+g++ -std=c++17 -O2 xxx.cpp -o xxx
 ```
 
-# 我不写 #define int long long！！！都给我 using ll！！！！
-# 我不写 #define int long long！！！都给我 using ll！！！！
-# 我不写 #define int long long！！！都给我 using ll！！！！
+# 别他妈 #define int long long 了
+
