@@ -45,7 +45,7 @@ int main(){
 					}
 				}
 			}
-			//ÅÐ¶¨2·ÖÍ¼
+			//åˆ¤å®š2åˆ†å›¾
 			if(comp.size()==1){
 				single++;//dandian
 			}
