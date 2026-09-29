@@ -15,24 +15,28 @@ void solve(){
 	cin>>n;
 	vector<int>a(n+1);
 	for(int i=1;i<=n;i++)cin>>a[i];
-	sort(a.begin()+1,a.end(),greater<int>());
-	ll fn=1;
-	for(int i=1;i<=n-1;i++)fn=fn*i%mod;
-	ll s=a[1];
-	auto qp=[](ll b,ll p){
-		ll r=1;
-		while(p){
-			if(p&1)r=r*b%mod;
-			b=b*b%mod;
-			p>>=1;
+	stack<int>st;
+	vector<int>nge(n+1,0);
+	for(int i=1;i<=n;i++){
+		while(!st.empty()&&a[st.top()]<a[i]){
+			nge[st.top()]=i;
+			st.pop();
 		}
-		return r;
-	};
-	ll ans=0;
-	for(int i=2;i<=n;i++){
-		ans+=fn*qp(i-1,mod-2)%mod*(s-1ll*a[i]*(i-1)%mod+mod)%mod;
-		ans%=mod;
-		s=(s+a[i])%mod;
+		st.push(i);
+	}
+	vector<ll>dp(n+1,0),ls(n+1,0);
+	ll ans=1ll*n*(n-1)/2;
+	for(int i=n;i>=1;i--){
+		if(nge[i]==0){
+			dp[i]=0;
+			ls[i]=i;
+		}
+		else{
+			ls[i]=ls[nge[i]];
+			dp[i]=dp[nge[i]]+ls[i]-nge[i]+1+2*(nge[i]-i-1);
+		}
+		ans+=dp[i];
+		//debug(dp[i]);
 	}
 	cout<<ans<<'\n';
 }

@@ -26,8 +26,14 @@ untitled*.cpp
 *.pbs
 *.TXT
 *.txt
-input.txt
 
 *.js
 *.ts
 *.java
+*.py
+
+*.csv
+*.bin
+
+*LLM*
+*Sel*

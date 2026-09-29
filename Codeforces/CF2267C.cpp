@@ -11,28 +11,24 @@ const ll mod=998244353;
 const ll inf=0x3f3f3f3f;
 const double eps=1e-8;
 void solve(){
-	int n;
-	cin>>n;
+	int n,x;
+	cin>>n>>x;
+	vector<int>pr;
 	vector<int>a(n+1);
 	for(int i=1;i<=n;i++)cin>>a[i];
-	sort(a.begin()+1,a.end(),greater<int>());
-	ll fn=1;
-	for(int i=1;i<=n-1;i++)fn=fn*i%mod;
-	ll s=a[1];
-	auto qp=[](ll b,ll p){
-		ll r=1;
-		while(p){
-			if(p&1)r=r*b%mod;
-			b=b*b%mod;
-			p>>=1;
-		}
-		return r;
-	};
+	int tmp=x;
+	for(int i=2;i*i<=tmp;i++){
+		if(tmp%i==0)pr.push_back(i);
+		while(tmp%i==0)tmp/=i;
+	}
+	if(tmp!=1)pr.push_back(tmp);
 	ll ans=0;
-	for(int i=2;i<=n;i++){
-		ans+=fn*qp(i-1,mod-2)%mod*(s-1ll*a[i]*(i-1)%mod+mod)%mod;
-		ans%=mod;
-		s=(s+a[i])%mod;
+	for(int p:pr){
+		ll sum=0;
+		for(int i=1;i<=n;i++){
+		if(a[i]%p==0)	sum+=a[i];
+		}
+		ans=max(ans,sum);
 	}
 	cout<<ans<<'\n';
 }

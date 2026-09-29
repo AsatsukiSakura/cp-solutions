@@ -11,30 +11,22 @@ const ll mod=998244353;
 const ll inf=0x3f3f3f3f;
 const double eps=1e-8;
 void solve(){
-	int n;
-	cin>>n;
-	vector<int>a(n+1);
-	for(int i=1;i<=n;i++)cin>>a[i];
-	sort(a.begin()+1,a.end(),greater<int>());
-	ll fn=1;
-	for(int i=1;i<=n-1;i++)fn=fn*i%mod;
-	ll s=a[1];
-	auto qp=[](ll b,ll p){
-		ll r=1;
-		while(p){
-			if(p&1)r=r*b%mod;
-			b=b*b%mod;
-			p>>=1;
-		}
-		return r;
-	};
+	int n,k;
+	cin>>n>>k;
+	vector<int>a(n+1,0);
 	ll ans=0;
-	for(int i=2;i<=n;i++){
-		ans+=fn*qp(i-1,mod-2)%mod*(s-1ll*a[i]*(i-1)%mod+mod)%mod;
-		ans%=mod;
-		s=(s+a[i])%mod;
+	for(int i=1;i<=n;i++){
+		cin>>a[i];
 	}
+	for(int i=1,j=n;i<=min(k-1,n-k+1);i++,j--){
+		ans+=max(a[i],a[j]);
+	}
+//	debug(ans);
+//	debug(n-k);
+	for(int i=k;i<=n-k+1;i++)
+		ans+=a[i];
 	cout<<ans<<'\n';
+	return;
 }
 int main(){
 	ios::sync_with_stdio(false);

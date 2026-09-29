@@ -13,28 +13,30 @@ const double eps=1e-8;
 void solve(){
 	int n;
 	cin>>n;
-	vector<int>a(n+1);
-	for(int i=1;i<=n;i++)cin>>a[i];
-	sort(a.begin()+1,a.end(),greater<int>());
-	ll fn=1;
-	for(int i=1;i<=n-1;i++)fn=fn*i%mod;
-	ll s=a[1];
-	auto qp=[](ll b,ll p){
-		ll r=1;
-		while(p){
-			if(p&1)r=r*b%mod;
-			b=b*b%mod;
-			p>>=1;
-		}
-		return r;
-	};
-	ll ans=0;
-	for(int i=2;i<=n;i++){
-		ans+=fn*qp(i-1,mod-2)%mod*(s-1ll*a[i]*(i-1)%mod+mod)%mod;
-		ans%=mod;
-		s=(s+a[i])%mod;
+	vector<int>c(101,0);
+	int mv=0;
+	for(int i=1;i<=n;i++){
+		int x;
+		cin>>x;
+		c[x]++;
+		mv=max(mv,x);
 	}
-	cout<<ans<<'\n';
+	vector<int>ans(n+1,0);
+	int idx=0;
+	while(1){
+		int cur=c[mv];
+		for(int i=mv;i>=1;i--){
+			for(int j=1;j<=min(cur,c[i]);j++){
+				++idx;
+				ans[idx]=i;
+			}
+			c[i]-=min(cur,c[i]);
+		}
+		while(c[mv]==0&&mv!=0)mv--;
+		if(mv==0)break;
+	}
+	for(int i=1;i<=n;i++)cout<<ans[i]<<' ';
+	cout<<'\n';
 }
 int main(){
 	ios::sync_with_stdio(false);

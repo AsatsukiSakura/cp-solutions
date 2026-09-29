@@ -14,28 +14,28 @@ void solve(){
 	int n;
 	cin>>n;
 	vector<int>a(n+1);
-	for(int i=1;i<=n;i++)cin>>a[i];
-	sort(a.begin()+1,a.end(),greater<int>());
-	ll fn=1;
-	for(int i=1;i<=n-1;i++)fn=fn*i%mod;
-	ll s=a[1];
-	auto qp=[](ll b,ll p){
-		ll r=1;
-		while(p){
-			if(p&1)r=r*b%mod;
-			b=b*b%mod;
-			p>>=1;
+	for(int i=1;i<=n;i++)
+		cin>>a[i];
+	for(int i=1;i<=n;i++){
+		for(int j=1;j<=1000;j++){
+			int tmp=0;
+			while(a[i]){
+				tmp+=(a[i]%10)*(a[i]%10);
+				a[i]/=10;
+			}
+			a[i]=tmp;
 		}
-		return r;
-	};
-	ll ans=0;
-	for(int i=2;i<=n;i++){
-		ans+=fn*qp(i-1,mod-2)%mod*(s-1ll*a[i]*(i-1)%mod+mod)%mod;
-		ans%=mod;
-		s=(s+a[i])%mod;
+	}
+	map<int,int>mp;
+	int ans=0;
+	for(int i=1;i<=n;i++)mp[a[i]]++;
+	for(auto &[val,cnt]:mp){
+		ans+=(cnt)*(cnt-1)/2;
 	}
 	cout<<ans<<'\n';
+	return;
 }
+
 int main(){
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);
