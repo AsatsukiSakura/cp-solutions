@@ -12,33 +12,32 @@ const ll inf=0x3f3f3f3f;
 const double eps=1e-8;
 void solve(){
 	int n;
-	cin>>n;
-	vector<int>a(n+1);
-	for(int i=1;i<=n;i++)cin>>a[i];
 	stack<int>st;
-	vector<int>nge(n+1,0);
+	string s;
+	cin>>n>>s;
+	s=' '+s;
+	vector<bool>p(n+1,1);
 	for(int i=1;i<=n;i++){
-		while(!st.empty()&&a[st.top()]<a[i]){
-			nge[st.top()]=i;
-			st.pop();
+		if(s[i]=='1')st.push(i);
+		if(s[i]=='2'){
+			if(!st.empty()){
+				p[st.top()]=0;
+				st.pop();
+			}
+			else p[i]=0;
 		}
-		st.push(i);
+		if(s[i]=='3'){
+			p[i]=0;
+		}
 	}
-	vector<ll>dp(n+1,0),ls(n+1,0);
-	ll ans=1ll*n*(n-1)/2;
-	for(int i=n;i>=1;i--){
-		if(nge[i]==0){
-			dp[i]=0;
-			ls[i]=i;
-		}
-		else{
-			ls[i]=ls[nge[i]];
-			dp[i]=dp[nge[i]]+ls[i]-nge[i]+1+2*(nge[i]-i-1);
-		}
-		ans+=dp[i];
-		//debug(dp[i]);
+	int o=0;
+	for(int i=1;i<=n;i++){
+		o+=p[i];
 	}
-	cout<<ans<<'\n';
+	cout<<o<<'\n';
+	for(int i=1;i<=n;i++)
+		if(p[i])cout<<i<<' ';
+	cout<<'\n';
 }
 int main(){
 	ios::sync_with_stdio(false);
