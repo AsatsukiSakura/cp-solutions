@@ -37,3 +37,11 @@ untitled*.cpp
 
 *LLM*
 *Sel*
+
+# XCPC 赛事题解标程（含多层目录）
+/XCPC/**/std/
+
+*.png
+.codex-tmp/
+*.pdf
+*.py*
