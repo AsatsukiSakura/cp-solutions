@@ -17,4 +17,4 @@ g++ -std=c++17 -O2 xxx.cpp -o xxx
 ```
 
 # 别他妈 #define int long long 了
-
+# upd 2026.11.22 #define int long long 真香
