@@ -45,3 +45,6 @@ untitled*.cpp
 .codex-tmp/
 *.pdf
 *.py*
+/XCPC/**/solutions/
+/XCPC/**/tests/
+*.pyc
